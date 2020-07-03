@@ -1,0 +1,8 @@
+setwd("D:/R/Class/Exploratory Data Analysis/xassessment")
+NEI <- readRDS("summarySCC_PM25.rds")
+SCC <- readRDS("Source_Classification_Code.rds")
+em <- tapply(NEI$Emissions,NEI$year,sum)
+png("plot1.png")
+plot(unique(NEI$year),em,type = "b",xlab="Years",ylab="Emissions",col=unique(NEI$year))
+title("The Emission Level according to Years Defined")
+dev.off()
